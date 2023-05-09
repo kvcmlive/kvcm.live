@@ -1,9 +1,36 @@
 <script lang="ts">
+	import { addHours, differenceInMilliseconds, getDay, getHours, startOfHour, sub } from 'date-fns';
+
 	export let data;
 
 	console.log(data);
 
 	const days = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+
+	function formatHour(hour: number) {
+		if (hour == 0) {
+			return '12:00 AM';
+		} else if (hour <= 12) {
+			return `${hour}:00 AM`;
+		} else {
+			return `${hour - 12}:00 PM`;
+		}
+	}
+
+	let date = new Date(startOfHour(Date.now()));
+	let highlight = { day: 8, hour: 24 };
+	function highlightCurrent() {
+		let day = getDay(date);
+		let hour = getHours(date);
+
+		highlight = { day, hour };
+
+		date = addHours(date, 1);
+		let interval = differenceInMilliseconds(date, Date.now());
+
+		setInterval(highlightCurrent, interval);
+	}
+	highlightCurrent();
 </script>
 
 <div class="container m-auto flex flex-col gap-4 py-4">
@@ -26,9 +53,13 @@
 			<tbody>
 				{#each data.schedule as hour}
 					<tr>
-						<td class="table-cell-fit sticky left-0 bg-surface-700">{hour.hour}</td>
-						{#each days as day}
-							<td>
+						<td class="table-cell-fit sticky left-0 bg-surface-700">{formatHour(hour.hour)}</td>
+						{#each days as day, i}
+							<td
+								class={highlight.day === i && highlight.hour === hour.hour
+									? 'table-row-checked'
+									: ''}
+							>
 								{#if hour.expand[day]}
 									<a href="/shows/{hour.expand[day].id}">
 										{hour.expand[day].title}<br />
