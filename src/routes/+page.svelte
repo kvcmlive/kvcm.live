@@ -1,2 +1,55 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<script lang="ts">
+	import Navbar from '$lib/components/navbar.svelte';
+	import { AppBar, AppShell, Avatar } from '@skeletonlabs/skeleton';
+	import { mutableMediaState, metadata, type MetadataState } from '../lib/GlobalStore';
+	import { vol } from '$lib/VolumeStore';
+	import MobileLinks from '$lib/components/MobileLinks.svelte';
+	const state = mutableMediaState;
+
+	function togglePause() {
+		$state.paused = !$state.paused;
+	}
+
+	let muted = false;
+	function toggleMute() {
+		$state.muted = !$state.muted;
+	}
+</script>
+
+<AppShell>
+	<svelte:fragment slot="header">
+		<Navbar />
+	</svelte:fragment>
+	<div
+		class="h-full flex flex-col md:flex-row text-center md:text-left place-content-center place-items-center gap-8"
+	>
+		<div>
+			<img src={$metadata.albumart} class="w-96" />
+		</div>
+		<div class="flex flex-col gap-4">
+			<div>
+				<h1>{$metadata.title}</h1>
+				<h2>{$metadata.artist}</h2>
+			</div>
+			<hr />
+			<div>
+				<button class="text-3xl" on:click={togglePause}>
+					{$state.paused ? '▶️' : '⏸️'}
+				</button>
+			</div>
+			<div class="flex place-items-center gap-2">
+				<span>{Math.floor($vol * 100)}% </span>
+				<input type="range" class="max-w-32 w-32" min="0" max="1" step="0.01" bind:value={$vol} />
+
+				<button class="text-3xl" on:click={toggleMute}>
+					{$state.muted ? '🔇' : '🔊'}
+				</button>
+			</div>
+		</div>
+	</div>
+	<svelte:fragment slot="footer">
+		<div class="block md:hidden">
+			<MobileLinks />
+		</div>
+	</svelte:fragment>
+</AppShell>

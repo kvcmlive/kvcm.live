@@ -4,16 +4,18 @@ The next generation of [kvcm.live](https://kvcm.live), featuring a new website, 
 
 ## Development instructions
 
-Make sure you've installed the dependencies with `yarn install`, as well as a fresh copy of Pocketbase in the root directory.
+Make sure you've installed the dependencies with `yarn install`, as well as a fresh copy of Pocketbase in the pocketbase directory.
 
 First, copy `template.env` into `.env` and fill it out. Then, start Pocketbase and the dev server.
 
 Make sure to initialize the Pocketbase schema with the `pocketbase.json` file before trying to access the server.
 
 ```bash
-./pocketbase serve
+./pocketbase/pocketbase serve
 yarn run dev
 ```
+
+Make sure to put pocketbase in the pocketbase subdirectory.
 
 ## Building
 
