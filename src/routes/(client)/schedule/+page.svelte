@@ -18,9 +18,9 @@
 	}
 
 	let date = new Date(startOfHour(Date.now()));
-	let highlight = { day: 8, hour: 24 };
+	let highlight = { day: 7, hour: 24 };
 	function highlightCurrent() {
-		let day = getDay(date);
+		let day = getDay(date) - 1;
 		let hour = getHours(date);
 
 		highlight = { day, hour };
