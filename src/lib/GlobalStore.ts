@@ -1,5 +1,7 @@
 import { browser } from '$app/environment';
 import { derived, readable, readonly, writable } from 'svelte/store';
+import { addHours, differenceInMilliseconds, getDay, getHours, startOfHour, sub } from 'date-fns';
+import { pb } from '$lib/pocketbase';
 
 export type PlaybackState = {
 	duration: number | undefined;
@@ -39,14 +41,45 @@ export type MetadataState = {
 	albumart?: string;
 };
 
-export const metadata = readable<MetadataState>(undefined, (set) => {
-	const updateMeta = async () => {
-		set({
-			title: 'Show title',
-			artist: 'Example DJ',
-			albumart: '/placeholder.jpg'
+const numToRow: Record<number, string> = {
+	0: 'mon',
+	1: 'tue',
+	2: 'wed',
+	3: 'thu',
+	4: 'fri',
+	5: 'sat',
+	6: 'sun'
+};
+
+export const metadata = readable<MetadataState>({}, (set) => {
+	const updateMeta = async (day: string, hour: number) => {
+		const record = await pb.collection('schedule').getFirstListItem(`hour="${hour}"`, {
+			expand: `${day}`
 		});
+
+		const show = record.expand[day];
+
+		const meta = {
+			title: show.title || 'No program information.',
+			artist: show.hosts || 'No host information.',
+			albumart: pb.files.getUrl(show, show.cover) || '/placeholder.jpg'
+		};
+
+		set(meta);
 	};
 
-	if (browser) updateMeta();
+	let date = new Date(startOfHour(Date.now()));
+	function initMetadata() {
+		const day = numToRow[getDay(date) - 1];
+		const hour = getHours(date);
+
+		updateMeta(day, hour);
+
+		date = addHours(date, 1);
+		const interval = differenceInMilliseconds(date, Date.now());
+
+		setInterval(initMetadata, interval);
+	}
+
+	if (browser) initMetadata();
 });
