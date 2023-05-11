@@ -59,6 +59,14 @@ export const metadata = readable<MetadataState>({}, (set) => {
 
 		const show = record.expand[day];
 
+		if (!show) {
+			set({
+				title: 'No program information.',
+				artist: 'No host information.',
+				albumart: '/placeholder.jpg'
+			});
+		}
+
 		const meta = {
 			title: show.title || 'No program information.',
 			artist: show.hosts || 'No host information.',
