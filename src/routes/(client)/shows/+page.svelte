@@ -16,7 +16,21 @@
 			{#if true}
 				<li>
 					<a href="/shows/{show.id}" class="card card-hover">
-						<img class="aspect-square" src={pb.files.getUrl(show, show.cover)} />
+						{#if show.cover}
+							<div class="card card-hover variant-ghost overflow-clip">
+								<img
+									class="aspect-square w-full"
+									src={pb.files.getUrl(show, show.cover)}
+									alt={show.title}
+								/>
+							</div>
+						{:else}
+							<div
+								class="flex w-full h-full aspect-square justify-center items-center card variant-ghost card-hover"
+							>
+								<h2 class="text-center">{show.title}</h2>
+							</div>
+						{/if}
 					</a>
 				</li>
 			{/if}
