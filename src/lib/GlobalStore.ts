@@ -65,6 +65,8 @@ export const metadata = readable<MetadataState>({}, (set) => {
 				artist: 'No host information.',
 				albumart: '/placeholder.jpg'
 			});
+
+			return;
 		}
 
 		const meta = {

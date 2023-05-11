@@ -24,9 +24,10 @@
 	}
 
 	$: $metadata, updateMeta();
+
 	$: if (browser) navigator.mediaSession.playbackState = $state.paused ? 'paused' : 'playing';
 	function updateMeta() {
-		if ($metadata && 'mediaSession' in navigator) {
+		if (browser && $metadata && 'mediaSession' in navigator) {
 			navigator.mediaSession.metadata = new MediaMetadata({
 				title: $metadata.title,
 				artist: $metadata.artist,
