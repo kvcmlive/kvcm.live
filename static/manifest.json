@@ -4,7 +4,7 @@
 	"dir": "ltr",
 	"display": "standalone",
 	"name": "kvcm.live (beta)",
-	"orientation": "landscape",
+	"orientation": "natural",
 	"scope": "/",
 	"short_name": "kvcm.live",
 	"start_url": "/",
