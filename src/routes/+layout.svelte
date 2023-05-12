@@ -38,6 +38,10 @@
 	}
 </script>
 
+<svelte:head>
+	<link rel="manifest" href="/manifest.json" />
+</svelte:head>
+
 <audio
 	bind:this={player}
 	bind:duration={$state.duration}

@@ -1,0 +1,34 @@
+{
+	"background_color": "#000000",
+	"description": "KVCM.Live is an all digital lab. It is run in combination with Broadcasting classes and the Broadcasting club at Los Angeles Valley College. The purpose is for students to be able to express their ideas, thoughts, stories, and music in a radio and podcasting setting to further their educational goals in relation to media.",
+	"dir": "ltr",
+	"display": "standalone",
+	"name": "kvcm.live (beta)",
+	"orientation": "landscape",
+	"scope": "/",
+	"short_name": "kvcm.live",
+	"start_url": "/",
+	"theme_color": "#ffffff",
+	"categories": ["music"],
+	"screenshots": [],
+	"icons": [
+		{
+			"src": "./favicon.png",
+			"type": "image/png",
+			"sizes": "512x512"
+		}
+	],
+	"shortcuts": [
+		{
+			"name": "Shows",
+			"url": "/shows",
+			"description": ""
+		},
+		{
+			"name": "Schedule",
+			"url": "/schedule",
+			"description": ""
+		}
+	],
+	"lang": "en"
+}
