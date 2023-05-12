@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Navbar from '$lib/components/navbar.svelte';
-	import { AppBar, AppShell, Avatar } from '@skeletonlabs/skeleton';
+	import { AppBar, AppShell, Avatar, ProgressBar } from '@skeletonlabs/skeleton';
 
 	import { mutableMediaState, metadata, type MetadataState } from '$lib/GlobalStore';
 	import { vol } from '$lib/VolumeStore';
@@ -25,6 +25,9 @@
 		<slot />
 	</div>
 	<svelte:fragment slot="footer">
+		{#if !$state.paused && ($state.readyState < 3 || $state.readyState === undefined)}
+			<ProgressBar value={undefined} />
+		{/if}
 		<div class="hidden sm:block">
 			<AppBar
 				gridColumns="grid-cols-3"

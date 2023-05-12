@@ -14,7 +14,7 @@
 <p>muted: {$state.muted}</p>
 <p>paused: {$state.paused}</p>
 <p>playback rate: {$state.playbackRate}</p>
-<p>played: {$state.played}</p>
+<p>played: {JSON.stringify($state.played)}</p>
 <p>ready state: {JSON.stringify($state.readyState)}</p>
 <p>seekable: {JSON.stringify($state.seekable)}</p>
 <p>seeking: {$state.seeking}</p>
