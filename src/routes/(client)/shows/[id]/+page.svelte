@@ -1,6 +1,10 @@
 <script lang="ts">
+	import Title from '$lib/components/Title.svelte';
+
 	export let data;
 </script>
+
+<Title text={data.show.title} />
 
 <div class="container m-auto p-2 flex flex-col gap-2">
 	<h1>{data.show.title}</h1>

@@ -3,9 +3,12 @@
 	import { onMount } from 'svelte';
 	import { mediaState, metadata } from '$lib/GlobalStore';
 	import { vol } from '$lib/VolumeStore';
+	import Title from '$lib/components/Title.svelte';
 
 	const state = mediaState;
 </script>
+
+<Title text="Debug" />
 
 <p>buffered: {JSON.stringify($state.buffered)}</p>
 <p>current time: {$state.currentTime}</p>

@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Title from '$lib/components/Title.svelte';
 	import { addHours, differenceInMilliseconds, getDay, getHours, startOfHour, sub } from 'date-fns';
 
 	export let data;
@@ -32,6 +33,8 @@
 	}
 	highlightCurrent();
 </script>
+
+<Title text="Schedule" />
 
 <div class="container m-auto flex flex-col gap-4 py-4">
 	<h1>Schedule</h1>

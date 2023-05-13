@@ -4,6 +4,7 @@
 	import { mutableMediaState, metadata, type MetadataState } from '../lib/GlobalStore';
 	import { vol } from '$lib/VolumeStore';
 	import MobileLinks from '$lib/components/MobileLinks.svelte';
+	import Title from '$lib/components/Title.svelte';
 	const state = mutableMediaState;
 
 	function togglePause() {
@@ -15,6 +16,8 @@
 		$state.muted = !$state.muted;
 	}
 </script>
+
+<Title text={undefined} />
 
 <AppShell>
 	<svelte:fragment slot="header">

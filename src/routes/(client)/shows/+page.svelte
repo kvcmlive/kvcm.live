@@ -1,10 +1,13 @@
 <script lang="ts">
+	import Title from '$lib/components/Title.svelte';
 	import { pb } from '$lib/pocketbase';
 
 	export let data;
 
 	console.log('data:', data.shows);
 </script>
+
+<Title text="Shows" />
 
 <div class="container m-auto flex flex-col gap-4 py-4">
 	<h1>Shows</h1>
