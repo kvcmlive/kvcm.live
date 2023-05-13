@@ -25,7 +25,7 @@
 		<slot />
 	</div>
 	<svelte:fragment slot="footer">
-		{#if !$state.paused && ($state.readyState < 3 || $state.readyState === undefined)}
+		{#if !$state.paused && $state.readyState < 3}
 			<ProgressBar value={undefined} />
 		{/if}
 		<div class="hidden sm:block">

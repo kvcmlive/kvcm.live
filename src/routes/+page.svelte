@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Navbar from '$lib/components/navbar.svelte';
-	import { AppBar, AppShell, Avatar } from '@skeletonlabs/skeleton';
+	import { AppBar, AppShell, Avatar, ProgressBar } from '@skeletonlabs/skeleton';
 	import { mutableMediaState, metadata, type MetadataState } from '../lib/GlobalStore';
 	import { vol } from '$lib/VolumeStore';
 	import MobileLinks from '$lib/components/MobileLinks.svelte';
@@ -19,6 +19,9 @@
 <AppShell>
 	<svelte:fragment slot="header">
 		<Navbar />
+		{#if !$state.paused && $state.readyState < 3}
+			<ProgressBar value={undefined} />
+		{/if}
 	</svelte:fragment>
 	<div
 		class="h-full flex flex-col md:flex-row text-center md:text-left place-content-center place-items-center gap-8"
