@@ -9,11 +9,12 @@
 	import { mutableMediaState, metadata, type MetadataState } from '$lib/GlobalStore';
 	import { vol } from '$lib/VolumeStore';
 	import { browser } from '$app/environment';
+	import Player from '$lib/components/Player.svelte';
 	const state = mutableMediaState;
 
 	$state.paused = true;
 	$state.currentTime = 0;
-	let player;
+	let player: HTMLMediaElement;
 	function togglePause() {
 		$state.paused = !$state.paused;
 	}
@@ -43,21 +44,6 @@
 	<link rel="manifest" href="/manifest.json" />
 </svelte:head>
 
-<audio
-	bind:this={player}
-	bind:duration={$state.duration}
-	bind:buffered={$state.buffered}
-	bind:played={$state.played}
-	bind:seekable={$state.seekable}
-	bind:seeking={$state.seeking}
-	bind:ended={$state.ended}
-	bind:readyState={$state.readyState}
-	bind:playbackRate={$state.playbackRate}
-	bind:volume={$vol}
-	bind:paused={$state.paused}
-	bind:muted={$state.muted}
->
-	<source src={PUBLIC_AUDIO_ENDPOINT} />
-</audio>
+<Player {state} />
 
 <slot />
