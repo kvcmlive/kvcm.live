@@ -7,11 +7,11 @@
 
 <Title text={data.show.title} />
 
-<div class="container m-auto p-2 flex flex-col gap-2">
+<div class="container m-auto flex flex-col gap-4 py-4">
 	<h1>{data.show.title}</h1>
 	<hr />
-	<div class="flex flex-col md:flex-row gap-2">
-		<div class="card overflow-clip w-full md:w-96">
+	<div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-2">
+		<div class="card overflow-clip w-full md:w-96 col-span-1">
 			<div class="aspect-square w-full bg-red-500">
 				<img
 					class="aspect-square w-full"
@@ -30,6 +30,6 @@
 			</div>
 		</div>
 
-		<p>{@html data.show.description}</p>
+		<p class="md:col-span-2 lg:col-span-3 p-2">{@html data.show.description}</p>
 	</div>
 </div>
