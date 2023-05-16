@@ -23,8 +23,13 @@
 							<div class="card card-hover variant-ghost overflow-clip">
 								<img
 									class="aspect-square w-full"
-									src={pb.files.getUrl(show, show.cover)}
+									src={pb.files.getUrl(show, show.cover, { thumb: '256x256' })}
+									srcset="{pb.files.getUrl(show, show.cover, { thumb: '128x128' })} 128w,
+											{pb.files.getUrl(show, show.cover, { thumb: '256x256' })} 256w,
+											{pb.files.getUrl(show, show.cover, { thumb: '512x512' })} 512w,
+											{pb.files.getUrl(show, show.cover, { thumb: '1024x1024' })} 1024w "
 									alt={show.title}
+									loading="lazy"
 								/>
 							</div>
 						{:else}
