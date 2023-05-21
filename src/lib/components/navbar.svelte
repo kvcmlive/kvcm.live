@@ -6,8 +6,8 @@
 	<svelte:fragment slot="lead">
 		<a href="/">
 			<div class="flex gap-2">
-				<img class="h-10" src="/widelogo.png" alt="kvcm.live" />
-				<span class="chip variant-filled">2.0 beta</span>
+				<img class="h-10" src="/widelogo.svg" alt="kvcm.live" />
+				<span class="chip variant-filled h-min place-self-center">2.0 beta</span>
 			</div>
 		</a>
 	</svelte:fragment>
