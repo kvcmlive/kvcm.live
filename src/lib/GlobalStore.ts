@@ -72,7 +72,7 @@ export const metadata = readable<MetadataState>({}, (set) => {
 		const meta = {
 			title: show.title || 'No program information.',
 			artist: show.hosts || 'No host information.',
-			albumart: pb.files.getUrl(show, show.cover) || '/placeholder.jpg'
+			albumart: show.cover ? pb.files.getUrl(show, show.cover) : '/placeholder.jpg'
 		};
 
 		set(meta);
