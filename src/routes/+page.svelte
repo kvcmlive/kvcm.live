@@ -30,7 +30,7 @@
 		class="h-full flex flex-col md:flex-row text-center md:text-left place-content-center place-items-center gap-8"
 	>
 		<div>
-			<img src={$metadata.albumart} class="w-96" />
+			<img src={$metadata.albumart} class="w-96" alt={$metadata.title} />
 		</div>
 		<div class="flex flex-col gap-4">
 			<div>
@@ -39,15 +39,27 @@
 			</div>
 			<hr />
 			<div>
-				<button class="text-3xl" on:click={togglePause}>
+				<button
+					class="text-3xl"
+					on:click={togglePause}
+					aria-label={$state.paused ? 'Play' : 'Pause'}
+				>
 					{$state.paused ? '▶️' : '⏸️'}
 				</button>
 			</div>
 			<div class="flex place-items-center gap-2">
 				<span>{Math.floor($vol * 100)}% </span>
-				<input type="range" class="max-w-32 w-32" min="0" max="1" step="0.01" bind:value={$vol} />
+				<input
+					type="range"
+					class="max-w-32 w-32"
+					min="0"
+					max="1"
+					step="0.01"
+					bind:value={$vol}
+					aria-label="Volume"
+				/>
 
-				<button class="text-3xl" on:click={toggleMute}>
+				<button class="text-3xl" on:click={toggleMute} aria-label="Mute">
 					{$state.muted ? '🔇' : '🔊'}
 				</button>
 			</div>

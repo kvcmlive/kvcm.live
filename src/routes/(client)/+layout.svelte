@@ -35,7 +35,11 @@
 				slotTrail="place-content-end"
 			>
 				<svelte:fragment slot="lead">
-					<button class="text-3xl" on:click={togglePause}>
+					<button
+						class="text-3xl"
+						on:click={togglePause}
+						aria-label={$state.paused ? 'Play' : 'Pause'}
+					>
 						{$state.paused ? '▶️' : '⏸️'}
 					</button>
 				</svelte:fragment>
@@ -60,13 +64,14 @@
 							max="1"
 							step="0.01"
 							bind:value={$vol}
+							aria-label="Volume"
 						/>
 
-						<button class="text-3xl" on:click={toggleMute}>
+						<button class="text-3xl" on:click={toggleMute} aria-label="Mute">
 							{$state.muted ? '🔇' : '🔊'}
 						</button>
 
-						<a class="text-3xl" href="/"> ⛶ </a>
+						<a class="text-3xl" href="/" aria-label="Fullscreen"> ⛶ </a>
 					</div>
 				</svelte:fragment>
 			</AppBar>
@@ -75,7 +80,11 @@
 		<div class="sm:hidden block">
 			<AppBar>
 				<svelte:fragment slot="lead">
-					<button class="text-3xl" on:click={togglePause}>
+					<button
+						class="text-3xl"
+						on:click={togglePause}
+						aria-label={$state.paused ? 'Play' : 'Pause'}
+					>
 						{$state.paused ? '▶️' : '⏸️'}
 					</button>
 				</svelte:fragment>
