@@ -22,9 +22,11 @@
 	let highlight = { day: 7, hour: 24 };
 	function highlightCurrent() {
 		let day = getDay(date) - 1;
+		day = day === -1 ? 6 : day; // sunday is returned as 0 for some reason, and gets shifted to -1
 		let hour = getHours(date);
 
 		highlight = { day, hour };
+		console.log(highlight);
 
 		date = addHours(date, 1);
 		let interval = differenceInMilliseconds(date, Date.now());
