@@ -65,6 +65,8 @@
 						<button class="text-3xl" on:click={toggleMute}>
 							{$state.muted ? '🔇' : '🔊'}
 						</button>
+
+						<a class="text-3xl" href="/"> ⛶ </a>
 					</div>
 				</svelte:fragment>
 			</AppBar>
