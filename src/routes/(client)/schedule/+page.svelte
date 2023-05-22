@@ -1,5 +1,7 @@
 <script lang="ts">
 	import Title from '$lib/components/Title.svelte';
+	import { pb } from '$lib/pocketbase';
+	import { Avatar } from '@skeletonlabs/skeleton';
 	import { addHours, differenceInMilliseconds, getDay, getHours, startOfHour, sub } from 'date-fns';
 
 	export let data;
@@ -66,10 +68,21 @@
 									: ''}
 							>
 								{#if hour.expand[day]}
-									<a href="/shows/{hour.expand[day].id}">
-										{hour.expand[day].title}<br />
-										{hour.expand[day].hosts}
-									</a>
+									<div class="flex gap-2 place-items-center">
+										{#if hour.expand[day].cover}
+											<Avatar
+												src={pb.files.getUrl(hour.expand[day], hour.expand[day].cover, {
+													thumb: '256x256'
+												})}
+												width="w-14"
+												rounded="rounded-lg"
+											/>
+										{/if}
+										<a href="/shows/{hour.expand[day].id}">
+											{hour.expand[day].title}<br />
+											{hour.expand[day].hosts}
+										</a>
+									</div>
 								{/if}
 							</td>
 						{/each}
