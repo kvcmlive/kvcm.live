@@ -41,10 +41,10 @@
 <Title text="Schedule" />
 
 <div class="container m-auto flex flex-col gap-4 py-4">
-	<h1>Schedule</h1>
+	<h1 class="h1">Schedule</h1>
 	<hr />
 	<div class="overflow-auto">
-		<table class="table table-interactive h-full overflow-auto rounded-lg">
+		<table class="table table-interactive h-full overflow-auto rounded-lg border-collapse">
 			<thead class="sticky top-0 max-h-full z-10">
 				<tr>
 					<th class="table-cell-fit sticky left-0 bg-surface-700">Hour</th>
@@ -65,24 +65,26 @@
 							<td
 								class={highlight.day === i && highlight.hour === hour.hour
 									? 'table-row-checked'
-									: ''}
+									: 'border border-surface-500 border-r-0 border-b-0'}
 							>
 								{#if hour.expand[day]}
-									<div class="flex gap-2 place-items-center">
-										{#if hour.expand[day].cover}
-											<Avatar
-												src={pb.files.getUrl(hour.expand[day], hour.expand[day].cover, {
-													thumb: '256x256'
-												})}
-												width="w-14"
-												rounded="rounded-lg"
-											/>
-										{/if}
-										<a href="/shows/{hour.expand[day].id}">
-											{hour.expand[day].title}<br />
-											{hour.expand[day].hosts}
-										</a>
-									</div>
+									<a href="/shows/{hour.expand[day].id}">
+										<div class="flex gap-2 place-items-center">
+											{#if hour.expand[day].cover}
+												<Avatar
+													src={pb.files.getUrl(hour.expand[day], hour.expand[day].cover, {
+														thumb: '256x256'
+													})}
+													width="w-14"
+													rounded="rounded-lg"
+												/>
+											{/if}
+											<div>
+												<span class="font-bold">{hour.expand[day].title}</span><br />
+												{hour.expand[day].hosts}
+											</div>
+										</div>
+									</a>
 								{/if}
 							</td>
 						{/each}

@@ -10,7 +10,7 @@
 <Title text="Shows" />
 
 <div class="container m-auto flex flex-col gap-4 py-4">
-	<h1>Shows</h1>
+	<h1 class="h1">Shows</h1>
 
 	<hr />
 

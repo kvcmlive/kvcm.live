@@ -2,7 +2,7 @@
 </script>
 
 <div class="">
-	<h1>admin!</h1>
+	<h1 class="h1">admin!</h1>
 
 	<nav>
 		<ul>

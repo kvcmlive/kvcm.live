@@ -34,8 +34,8 @@
 		</div>
 		<div class="flex flex-col gap-4">
 			<div>
-				<h1>{$metadata.title}</h1>
-				<h2>{$metadata.artist}</h2>
+				<h1 class="h1">{$metadata.title}</h1>
+				<h2 class="h2">{$metadata.artist}</h2>
 			</div>
 			<hr />
 			<div>

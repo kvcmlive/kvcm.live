@@ -4,7 +4,7 @@
 
 <AppBar>
 	<svelte:fragment slot="lead"><button>⬅️</button></svelte:fragment>
-	<h2>Add a show</h2>
+	<h2 class="h2">Add a show</h2>
 </AppBar>
 
 <div class="p-4">
