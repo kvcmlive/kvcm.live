@@ -36,7 +36,7 @@
 							<div
 								class="flex w-full h-full aspect-square justify-center items-center card variant-ghost card-hover"
 							>
-								<h2 class="text-center">{show.title}</h2>
+								<p class="text-center h2">{show.title}</p>
 							</div>
 						{/if}
 					</a>

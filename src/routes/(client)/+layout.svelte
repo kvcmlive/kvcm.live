@@ -49,7 +49,7 @@
 						<Avatar src={$metadata.albumart} width="w-14" rounded="rounded-lg" />
 					</div>
 					<div class="flex flex-col">
-						<p>{$metadata.title}</p>
+						<p class="font-bold">{$metadata.title}</p>
 						<p>{$metadata.artist}</p>
 					</div>
 				</div>
