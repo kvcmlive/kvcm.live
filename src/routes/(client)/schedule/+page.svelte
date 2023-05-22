@@ -47,7 +47,7 @@
 		<table class="table table-interactive h-full overflow-auto rounded-lg border-collapse">
 			<thead class="sticky top-0 max-h-full z-10">
 				<tr>
-					<th class="table-cell-fit sticky left-0 bg-surface-700">Hour</th>
+					<th class="table-cell-fit sticky left-0">Hour</th>
 					<th>Monday</th>
 					<th>Tuesday</th>
 					<th>Wednesday</th>
@@ -60,7 +60,9 @@
 			<tbody>
 				{#each data.schedule as hour}
 					<tr>
-						<td class="table-cell-fit sticky left-0 bg-surface-700">{formatHour(hour.hour)}</td>
+						<td class="table-cell-fit sticky left-0 bg-surface-200 dark:bg-surface-700"
+							>{formatHour(hour.hour)}</td
+						>
 						{#each days as day, i}
 							<td
 								class={highlight.day === i && highlight.hour === hour.hour
