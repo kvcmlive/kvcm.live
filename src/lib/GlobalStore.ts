@@ -2,6 +2,7 @@ import { browser } from '$app/environment';
 import { derived, readable, readonly, writable } from 'svelte/store';
 import { addHours, differenceInMilliseconds, getDay, getHours, startOfHour, sub } from 'date-fns';
 import { pb } from '$lib/pocketbase';
+import { PUBLIC_AUDIO_ENDPOINT } from '$env/static/public';
 
 export type PlaybackState = {
 	duration: number | undefined;
@@ -16,6 +17,7 @@ export type PlaybackState = {
 	paused: boolean | undefined;
 	volume: number | undefined;
 	muted: boolean | undefined;
+	src: string;
 };
 
 export const mutableMediaState = writable<PlaybackState>({
@@ -30,7 +32,8 @@ export const mutableMediaState = writable<PlaybackState>({
 	playbackRate: undefined,
 	paused: undefined,
 	volume: undefined,
-	muted: undefined
+	muted: undefined,
+	src: PUBLIC_AUDIO_ENDPOINT
 });
 
 export const mediaState = readonly(mutableMediaState);

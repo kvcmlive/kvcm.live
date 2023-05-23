@@ -4,6 +4,7 @@
 	import { mediaState, metadata } from '$lib/GlobalStore';
 	import { vol } from '$lib/VolumeStore';
 	import Title from '$lib/components/Title.svelte';
+	import { PUBLIC_AUDIO_ENDPOINT } from '$env/static/public';
 
 	const state = mediaState;
 </script>
@@ -23,3 +24,21 @@
 <p>seeking: {$state.seeking}</p>
 <p>volume: {$vol}</p>
 <p>meta: {JSON.stringify($metadata)}</p>
+
+{#if !$state.played}
+	{#if $state.src === PUBLIC_AUDIO_ENDPOINT}
+		<button
+			class="btn variant-filled"
+			on:click={() => {
+				$state.src = 'https://stream.gensokyoradio.net/3';
+			}}>switch to gensokyo radio</button
+		>
+	{:else}
+		<button
+			class="btn variant-filled"
+			on:click={() => {
+				$state.src = PUBLIC_AUDIO_ENDPOINT;
+			}}>switch to kvcm radio</button
+		>
+	{/if}
+{/if}

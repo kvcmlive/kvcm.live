@@ -25,7 +25,7 @@
 			bind:muted={$state.muted}
 			preload="none"
 		>
-			<source src={PUBLIC_AUDIO_ENDPOINT} />
+			<source src={$state.src} />
 		</audio>
 	{/if}
 </div>
