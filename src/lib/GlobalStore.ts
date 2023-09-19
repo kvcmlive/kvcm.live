@@ -61,14 +61,17 @@ export const metadata = readable<MetadataState>({}, (set) => {
 			expand: `${day}`
 		});
 
-		try {
-			const show = record.expand[day];
+		console.log('record');
+		console.log(record);
 
-			set({title: show.title || 'No program information.',
-			artist: show.hosts || 'No host information.',
-			albumart: show.cover ? pb.files.getUrl(show, show.cover) : '/placeholder.jpg'})
-		} catch (e) {
-			console.log(e)
+		if (record.expand) {
+			const show = record.expand[day];
+			set({
+				title: show.title || 'No program information.',
+				artist: show.hosts || 'No host information.',
+				albumart: show.cover ? pb.files.getUrl(show, show.cover) : '/placeholder.jpg'
+			});
+		} else {
 			set({
 				title: 'No program information.',
 				artist: 'No host information.',
