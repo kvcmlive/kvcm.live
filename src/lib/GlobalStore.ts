@@ -3,6 +3,7 @@ import { derived, readable, readonly, writable } from 'svelte/store';
 import { addHours, differenceInMilliseconds, getDay, getHours, startOfHour, sub } from 'date-fns';
 import { pb } from '$lib/pocketbase';
 import { PUBLIC_AUDIO_ENDPOINT } from '$env/static/public';
+import type { RecordModel } from 'pocketbase';
 
 export type PlaybackState = {
 	duration: number | undefined;
@@ -60,25 +61,20 @@ export const metadata = readable<MetadataState>({}, (set) => {
 			expand: `${day}`
 		});
 
-		const show = record.expand[day];
+		try {
+			const show = record.expand[day];
 
-		if (!show) {
+			set({title: show.title || 'No program information.',
+			artist: show.hosts || 'No host information.',
+			albumart: show.cover ? pb.files.getUrl(show, show.cover) : '/placeholder.jpg'})
+		} catch (e) {
+			console.log(e)
 			set({
 				title: 'No program information.',
 				artist: 'No host information.',
 				albumart: '/placeholder.jpg'
 			});
-
-			return;
 		}
-
-		const meta = {
-			title: show.title || 'No program information.',
-			artist: show.hosts || 'No host information.',
-			albumart: show.cover ? pb.files.getUrl(show, show.cover) : '/placeholder.jpg'
-		};
-
-		set(meta);
 	};
 
 	let date = new Date(startOfHour(Date.now()));
