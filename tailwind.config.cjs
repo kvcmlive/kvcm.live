@@ -16,7 +16,7 @@ module.exports = {
 		require('@tailwindcss/typography'),
 		skeleton({
 			themes: {
-				custom: [ Theme ]
+				custom: [Theme]
 			}
 		})
 	]
