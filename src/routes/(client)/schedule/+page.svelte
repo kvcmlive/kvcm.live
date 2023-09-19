@@ -6,8 +6,6 @@
 
 	export let data;
 
-	console.log(data);
-
 	const days = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
 
 	function formatHour(hour: number) {
@@ -69,7 +67,7 @@
 									? 'table-row-checked'
 									: 'border border-surface-500 border-r-0 border-b-0'}
 							>
-								{#if hour.expand[day]}
+								{#if hour.expand && hour.expand[day]}
 									<a href="/shows/{hour.expand[day].id}">
 										<div class="flex gap-2 place-items-center">
 											{#if hour.expand[day].cover}
