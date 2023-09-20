@@ -16,7 +16,7 @@
 		<div class="btn-group variant-filled-primary md:flex hidden">
 			<a href="/shows">Shows</a>
 			<a href="/schedule">Schedule</a>
-			<a href="/staff">Staff</a>
+			<a href="/about/staff">Staff</a>
 			<a href="/debug">Debug</a>
 		</div>
 	</svelte:fragment>
