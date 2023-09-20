@@ -1,22 +1,32 @@
 <script lang="ts">
 	import Title from '$lib/components/Title.svelte';
 	import { pb } from '$lib/pocketbase';
+	import { RadioGroup, RadioItem } from '@skeletonlabs/skeleton';
 
 	export let data;
 
 	console.log('data:', data.shows);
+
+	let showType = 'show';
 </script>
 
 <Title text="Shows" />
 
 <div class="container m-auto flex flex-col gap-4 py-4">
-	<h1 class="h1">Shows</h1>
+	<div class="flex place-items-center justify-between">
+		<h1 class="h1">Shows</h1>
+
+		<RadioGroup>
+			<RadioItem bind:group={showType} name="filter" value="show">Shows</RadioItem>
+			<RadioItem bind:group={showType} name="filter" value="podcast">Podcasts</RadioItem>
+		</RadioGroup>
+	</div>
 
 	<hr />
 
 	<ul class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
 		{#each data.shows as show}
-			{#if true}
+			{#if show.type === showType}
 				<li>
 					<a href="/shows/{show.id}" class="card card-hover">
 						{#if show.cover}
