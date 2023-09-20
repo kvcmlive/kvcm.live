@@ -1,5 +1,7 @@
 <script lang="ts">
 	import { AppBar, LightSwitch } from '@skeletonlabs/skeleton';
+
+	import { dev } from '$app/environment';
 </script>
 
 <AppBar>
@@ -18,7 +20,9 @@
 			<a href="/schedule">Schedule</a>
 			<a href="/about/staff">Staff</a>
 			<a href="/about/alumni">Alumni</a>
-			<a href="/debug">Debug</a>
+			{#if dev}
+				<a href="/debug">Debug</a>
+			{/if}
 		</div>
 	</svelte:fragment>
 </AppBar>
