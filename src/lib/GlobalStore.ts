@@ -1,9 +1,8 @@
 import { browser } from '$app/environment';
-import { derived, readable, readonly, writable } from 'svelte/store';
-import { addHours, differenceInMilliseconds, getDay, getHours, startOfHour, sub } from 'date-fns';
+import { readable, readonly, writable } from 'svelte/store';
+import { addHours, differenceInMilliseconds, getDay, getHours, startOfHour } from 'date-fns';
 import { pb } from '$lib/pocketbase';
 import { PUBLIC_AUDIO_ENDPOINT } from '$env/static/public';
-import type { RecordModel } from 'pocketbase';
 
 export type PlaybackState = {
 	duration: number | undefined;
