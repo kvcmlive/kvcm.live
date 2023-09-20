@@ -77,63 +77,6 @@
 		"options": {}
 	},
 	{
-		"id": "lhk2m8i0eyatipz",
-		"name": "staff",
-		"type": "base",
-		"system": false,
-		"schema": [
-			{
-				"id": "l9epqznm",
-				"name": "name",
-				"type": "text",
-				"system": false,
-				"required": false,
-				"options": {
-					"min": null,
-					"max": null,
-					"pattern": ""
-				}
-			},
-			{
-				"id": "a8qqsccs",
-				"name": "roles",
-				"type": "editor",
-				"system": false,
-				"required": false,
-				"options": {}
-			},
-			{
-				"id": "vci6q7oh",
-				"name": "active",
-				"type": "bool",
-				"system": false,
-				"required": false,
-				"options": {}
-			},
-			{
-				"id": "qbepl36s",
-				"name": "avatar",
-				"type": "file",
-				"system": false,
-				"required": false,
-				"options": {
-					"maxSelect": 1,
-					"maxSize": 5242880,
-					"mimeTypes": [],
-					"thumbs": [],
-					"protected": false
-				}
-			}
-		],
-		"indexes": [],
-		"listRule": null,
-		"viewRule": null,
-		"createRule": null,
-		"updateRule": null,
-		"deleteRule": null,
-		"options": {}
-	},
-	{
 		"id": "meya7q319b7y496",
 		"name": "shows",
 		"type": "base",
@@ -164,14 +107,6 @@
 				}
 			},
 			{
-				"id": "ifppy84j",
-				"name": "description",
-				"type": "editor",
-				"system": false,
-				"required": false,
-				"options": {}
-			},
-			{
 				"id": "hbjzz8lr",
 				"name": "cover",
 				"type": "file",
@@ -181,14 +116,14 @@
 					"maxSelect": 1,
 					"maxSize": 5242880,
 					"mimeTypes": [],
-					"thumbs": [],
+					"thumbs": ["32x32", "64x64", "128x128", "256x256", "512x512", "1024x1024"],
 					"protected": false
 				}
 			},
 			{
-				"id": "5nreaqle",
-				"name": "active",
-				"type": "bool",
+				"id": "ifppy84j",
+				"name": "description",
+				"type": "editor",
 				"system": false,
 				"required": false,
 				"options": {}
@@ -204,6 +139,25 @@
 					"max": null,
 					"pattern": ""
 				}
+			},
+			{
+				"id": "cgopnuwl",
+				"name": "type",
+				"type": "select",
+				"system": false,
+				"required": false,
+				"options": {
+					"maxSelect": 1,
+					"values": ["podcast", "show", "special"]
+				}
+			},
+			{
+				"id": "5nreaqle",
+				"name": "active",
+				"type": "bool",
+				"system": false,
+				"required": false,
+				"options": {}
 			}
 		],
 		"indexes": [],
@@ -328,6 +282,131 @@
 					"maxSelect": 1,
 					"displayFields": []
 				}
+			}
+		],
+		"indexes": [],
+		"listRule": "",
+		"viewRule": "",
+		"createRule": null,
+		"updateRule": null,
+		"deleteRule": null,
+		"options": {}
+	},
+	{
+		"id": "lhk2m8i0eyatipz",
+		"name": "staff",
+		"type": "base",
+		"system": false,
+		"schema": [
+			{
+				"id": "l9epqznm",
+				"name": "name",
+				"type": "text",
+				"system": false,
+				"required": false,
+				"options": {
+					"min": null,
+					"max": null,
+					"pattern": ""
+				}
+			},
+			{
+				"id": "a8qqsccs",
+				"name": "roles",
+				"type": "editor",
+				"system": false,
+				"required": false,
+				"options": {}
+			},
+			{
+				"id": "vci6q7oh",
+				"name": "active",
+				"type": "bool",
+				"system": false,
+				"required": false,
+				"options": {}
+			},
+			{
+				"id": "qbepl36s",
+				"name": "avatar",
+				"type": "file",
+				"system": false,
+				"required": false,
+				"options": {
+					"maxSelect": 1,
+					"maxSize": 5242880,
+					"mimeTypes": [],
+					"thumbs": [],
+					"protected": false
+				}
+			},
+			{
+				"id": "zumi26gq",
+				"name": "sort",
+				"type": "number",
+				"system": false,
+				"required": false,
+				"options": {
+					"min": null,
+					"max": null
+				}
+			}
+		],
+		"indexes": [],
+		"listRule": "",
+		"viewRule": "",
+		"createRule": null,
+		"updateRule": null,
+		"deleteRule": null,
+		"options": {}
+	},
+	{
+		"id": "ymxt5rz8p521wxk",
+		"name": "alumni",
+		"type": "base",
+		"system": false,
+		"schema": [
+			{
+				"id": "rgpsyx9s",
+				"name": "name",
+				"type": "text",
+				"system": false,
+				"required": false,
+				"options": {
+					"min": null,
+					"max": null,
+					"pattern": ""
+				}
+			},
+			{
+				"id": "tkr5xfwx",
+				"name": "start_year",
+				"type": "number",
+				"system": false,
+				"required": false,
+				"options": {
+					"min": null,
+					"max": null
+				}
+			},
+			{
+				"id": "ddoqp0bx",
+				"name": "end_year",
+				"type": "number",
+				"system": false,
+				"required": false,
+				"options": {
+					"min": null,
+					"max": null
+				}
+			},
+			{
+				"id": "ap6nlld4",
+				"name": "description",
+				"type": "editor",
+				"system": false,
+				"required": false,
+				"options": {}
 			}
 		],
 		"indexes": [],
