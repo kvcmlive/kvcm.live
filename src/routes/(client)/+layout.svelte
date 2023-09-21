@@ -55,8 +55,11 @@
 				</div>
 
 				<svelte:fragment slot="trail">
-					<div class="place-items-center gap-2 flex">
-						<span>{Math.floor($vol * 100)}% </span>
+					<div class="flex place-items-center gap-2">
+						<button class="text-3xl" on:click={toggleMute} aria-label="Mute">
+							{$state.muted ? '🔇' : '🔊'}
+						</button>
+
 						<input
 							type="range"
 							class="max-w-32 w-32"
@@ -67,9 +70,7 @@
 							aria-label="Volume"
 						/>
 
-						<button class="text-3xl" on:click={toggleMute} aria-label="Mute">
-							{$state.muted ? '🔇' : '🔊'}
-						</button>
+						<span>{Math.floor($vol * 100)}% </span>
 
 						<a class="text-3xl" href="/" aria-label="Fullscreen"> ⛶ </a>
 					</div>

@@ -38,7 +38,7 @@
 				<h2 class="h2">{$metadata.artist}</h2>
 			</div>
 			<hr />
-			<div>
+			<div class="flex w-full content-center md:justify-between flex-col md:flex-row">
 				<button
 					class="text-3xl"
 					on:click={togglePause}
@@ -46,22 +46,24 @@
 				>
 					{$state.paused ? '▶️' : '⏸️'}
 				</button>
-			</div>
-			<div class="flex place-items-center gap-2">
-				<span>{Math.floor($vol * 100)}% </span>
-				<input
-					type="range"
-					class="max-w-32 w-32"
-					min="0"
-					max="1"
-					step="0.01"
-					bind:value={$vol}
-					aria-label="Volume"
-				/>
 
-				<button class="text-3xl" on:click={toggleMute} aria-label="Mute">
-					{$state.muted ? '🔇' : '🔊'}
-				</button>
+				<div class="flex place-items-center gap-2">
+					<button class="text-3xl" on:click={toggleMute} aria-label="Mute">
+						{$state.muted ? '🔇' : '🔊'}
+					</button>
+
+					<input
+						type="range"
+						class="md:max-w-32 w-full"
+						min="0"
+						max="1"
+						step="0.01"
+						bind:value={$vol}
+						aria-label="Volume"
+					/>
+
+					<span>{Math.floor($vol * 100)}% </span>
+				</div>
 			</div>
 		</div>
 	</div>
