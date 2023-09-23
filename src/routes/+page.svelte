@@ -29,8 +29,8 @@
 	<div
 		class="h-full flex flex-col md:flex-row text-center md:text-left place-content-center place-items-center gap-8 bg-gradient-to-br variant-gradient-primary-secondary"
 	>
-		<div>
-			<img src={$metadata.albumart} class="w-96" alt={$metadata.title} />
+		<div class="aspect-square w-96">
+			<img src={$metadata.albumart} class="w-96" width="500" height="500" alt={$metadata.title} />
 		</div>
 		<div class="flex flex-col gap-4">
 			<div>

@@ -37,6 +37,28 @@
 
 <svelte:head>
 	<link rel="manifest" href="/manifest.json" />
+	<meta name="description" content="95.1 KVCM, Monarch Radio, The Voice of Valley College." /><meta
+		property="og:type"
+		content="website"
+	/>
+	<meta property="og:locale" content="en_US" />
+	<meta property="og:site_name" content="kvcm.live" />
+	<meta property="og:title" content="Home" />
+	<meta property="og:url" content="http://kvcm.live/" />
+	<meta
+		property="og:description"
+		content="95.1 KVCM, Monarch Radio, The Voice of Valley College."
+	/>
+	<meta property="og:image" content="http://kvcm.live/assets/images/square.jpg" />
+	<meta name="twitter:site" content="@kvcmlive" />
+	<meta name="twitter:title" content="Home" />
+	<meta
+		name="twitter:description"
+		content="95.1 KVCM, Monarch Radio, The Voice of Valley College."
+	/>
+	<meta name="twitter:url" content="http://kvcm.live/" />
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:image" content="http://kvcm.live/assets/images/square.jpg" />
 </svelte:head>
 
 <Player {state} />
