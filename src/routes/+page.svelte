@@ -40,14 +40,14 @@
 			<hr />
 			<div class="flex w-full content-center md:justify-between flex-col md:flex-row">
 				<button
-					class="text-3xl"
+					class="text-5xl md:text-3xl"
 					on:click={togglePause}
 					aria-label={$state.paused ? 'Play' : 'Pause'}
 				>
 					{$state.paused ? '▶️' : '⏸️'}
 				</button>
 
-				<div class="flex place-items-center gap-2">
+				<div class="flex place-items-center gap-2 my-4 md:my-0">
 					<button class="text-3xl" on:click={toggleMute} aria-label="Mute">
 						{$state.muted ? '🔇' : '🔊'}
 					</button>
