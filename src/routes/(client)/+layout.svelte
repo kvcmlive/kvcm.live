@@ -6,6 +6,7 @@
 	import { vol } from '$lib/VolumeStore';
 	import MobileLinks from '$lib/components/MobileLinks.svelte';
 	import { VolumeX, Volume2, Play, Pause, Maximize } from 'lucide-svelte';
+	import Volume from '$lib/components/Volume.svelte';
 	const state = mutableMediaState;
 
 	function togglePause() {
@@ -61,25 +62,7 @@
 
 				<svelte:fragment slot="trail">
 					<div class="flex place-items-center gap-2">
-						<button class="text-3xl" on:click={toggleMute} aria-label="Mute">
-							{#if $state.muted}
-								<VolumeX />
-							{:else}
-								<Volume2 />
-							{/if}
-						</button>
-
-						<input
-							type="range"
-							class="max-w-32 w-32"
-							min="0"
-							max="1"
-							step="0.01"
-							bind:value={$vol}
-							aria-label="Volume"
-						/>
-
-						<span>{Math.floor($vol * 100)}% </span>
+						<Volume />
 
 						<a class="text-3xl" href="/" aria-label="Maximize">
 							<Maximize />
