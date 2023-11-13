@@ -39,7 +39,7 @@
 											{pb.files.getUrl(show, show.cover, { thumb: '512x512' })} 512w,
 											{pb.files.getUrl(show, show.cover, { thumb: '1024x1024' })} 1024w "
 									alt={show.title}
-									loading="lazy"
+									loading=""
 								/>
 							</div>
 						{:else}
