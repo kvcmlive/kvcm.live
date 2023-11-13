@@ -5,6 +5,8 @@
 	import { vol } from '$lib/VolumeStore';
 	import MobileLinks from '$lib/components/MobileLinks.svelte';
 	import Title from '$lib/components/Title.svelte';
+	import { Pause, Play, Volume, Volume2, VolumeX } from 'lucide-svelte';
+
 	const state = mutableMediaState;
 
 	function togglePause() {
@@ -40,16 +42,24 @@
 			<hr />
 			<div class="flex w-full content-center md:justify-between flex-col md:flex-row">
 				<button
-					class="text-5xl md:text-3xl"
+					class="flex justify-center"
 					on:click={togglePause}
 					aria-label={$state.paused ? 'Play' : 'Pause'}
 				>
-					{$state.paused ? '▶️' : '⏸️'}
+					{#if $state.paused}
+						<Play size={48} />
+					{:else}
+						<Pause size={48} />
+					{/if}
 				</button>
 
 				<div class="flex place-items-center gap-2 my-4 md:my-0">
 					<button class="text-3xl" on:click={toggleMute} aria-label="Mute">
-						{$state.muted ? '🔇' : '🔊'}
+						{#if $state.muted}
+							<VolumeX />
+						{:else}
+							<Volume2 />
+						{/if}
 					</button>
 
 					<input

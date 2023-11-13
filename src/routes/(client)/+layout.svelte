@@ -5,6 +5,7 @@
 	import { mutableMediaState, metadata, type MetadataState } from '$lib/GlobalStore';
 	import { vol } from '$lib/VolumeStore';
 	import MobileLinks from '$lib/components/MobileLinks.svelte';
+	import { VolumeX, Volume2, Play, Pause, Maximize } from 'lucide-svelte';
 	const state = mutableMediaState;
 
 	function togglePause() {
@@ -40,7 +41,11 @@
 						on:click={togglePause}
 						aria-label={$state.paused ? 'Play' : 'Pause'}
 					>
-						{$state.paused ? '▶️' : '⏸️'}
+						{#if $state.paused}
+							<Play />
+						{:else}
+							<Pause />
+						{/if}
 					</button>
 				</svelte:fragment>
 
@@ -57,7 +62,11 @@
 				<svelte:fragment slot="trail">
 					<div class="flex place-items-center gap-2">
 						<button class="text-3xl" on:click={toggleMute} aria-label="Mute">
-							{$state.muted ? '🔇' : '🔊'}
+							{#if $state.muted}
+								<VolumeX />
+							{:else}
+								<Volume2 />
+							{/if}
 						</button>
 
 						<input
@@ -72,7 +81,9 @@
 
 						<span>{Math.floor($vol * 100)}% </span>
 
-						<a class="text-3xl" href="/" aria-label="Fullscreen"> ⛶ </a>
+						<a class="text-3xl" href="/" aria-label="Maximize">
+							<Maximize />
+						</a>
 					</div>
 				</svelte:fragment>
 			</AppBar>
@@ -86,7 +97,11 @@
 						on:click={togglePause}
 						aria-label={$state.paused ? 'Play' : 'Pause'}
 					>
-						{$state.paused ? '▶️' : '⏸️'}
+						{#if $state.paused}
+							<Play />
+						{:else}
+							<Pause />
+						{/if}
 					</button>
 				</svelte:fragment>
 				<a href="/" class="unstyled w-screen">
