@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { stringify } from 'postcss';
 	import { onMount } from 'svelte';
 	import { mediaState, metadata } from '$lib/GlobalStore';
 	import { vol } from '$lib/VolumeStore';
